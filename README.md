@@ -189,12 +189,189 @@ By completing this project, you will understand:
 - Build a **Streamlit web application** for cluster visualization
 
 ---
+# Dimensionality Reduction using PCA
+
+This project demonstrates **Dimensionality Reduction using Principal Component Analysis (PCA)** with Python and Scikit-Learn.  
+PCA is used to reduce high-dimensional data into fewer dimensions while preserving as much variance as possible.
+
+The project applies PCA on the **Digits dataset** and visualizes the transformed data in **2D space**.
+
+---
+
+## 📌 Project Overview
+
+High-dimensional datasets can be difficult to visualize and may increase computational complexity.  
+**Principal Component Analysis (PCA)** helps reduce the number of features while maintaining important information.
+
+In this project:
+
+- The **Digits dataset** is loaded from Scikit-learn.
+- PCA is applied to reduce the dataset to **2 principal components**.
+- The reduced dataset is visualized using **Matplotlib scatter plot**.
+
+---
+
+## 📂 Dataset
+
+The dataset used is the **Digits Dataset** from Scikit-learn.
+
+Features of the dataset:
+
+- 1797 samples of handwritten digits
+- Each image is **8 × 8 pixels**
+- Each image is flattened into **64 features**
+- Target labels represent digits **0–9**
+
+Dataset Source:
+```
+sklearn.datasets.load_digits()
+```
+
+---
+
+## ⚙️ Technologies Used
+
+- Python
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Jupyter Notebook
+
+---
+
+## 🧠 Algorithm Used
+
+### Principal Component Analysis (PCA)
+
+PCA is an **unsupervised machine learning algorithm** used for dimensionality reduction.
+
+Key concepts:
+
+- Converts high-dimensional data into a **lower-dimensional space**
+- Finds **principal components** that maximize variance
+- Removes redundancy and noise
+- Helps with **visualization and faster model training**
+
+In this project:
+
+- Original features: **64**
+- Reduced features: **2 principal components**
+
+---
+
+## 🚀 Project Workflow
+
+1. Import required libraries.
+2. Load the digits dataset.
+3. Extract feature matrix `X` and labels `y`.
+4. Apply PCA with **2 components**.
+5. Transform the dataset into reduced dimensions.
+6. Visualize the reduced dataset using a **scatter plot**.
+
+---
+
+## 💻 Implementation
+
+### Import Libraries
+
+```python
+from sklearn.datasets import load_digits
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+```
+
+### Load Dataset
+
+```python
+data = load_digits()
+X = data.data
+y = data.target
+```
+
+### Apply PCA
+
+```python
+pca = PCA(n_components=2)
+X_reduced = pca.fit_transform(X)
+```
+
+### Visualization
+
+```python
+plt.scatter(X_reduced[:,0], X_reduced[:,1], c=y)
+plt.title("PCA Visualization of Digits Dataset")
+plt.xlabel("Component 1")
+plt.ylabel("Component 2")
+plt.show()
+```
+
+---
+
+## 📊 Output
+
+The output is a **2D scatter plot** showing how the handwritten digits are distributed after dimensionality reduction.
+
+- Each point represents an image from the dataset.
+- Different colors represent different digit classes.
+- PCA helps visualize high-dimensional data in **2D space**.
+
+---
+
+## 📈 Advantages of PCA
+
+- Reduces dimensionality
+- Improves visualization
+- Removes correlated features
+- Speeds up machine learning models
+- Reduces overfitting
+
+---
+
+## 📁 Project Structure
+
+```
+DimensionalityReduction-PCA/
+│
+├── DimensionalityReduction(PCA).ipynb
+└── README.md
+```
+
+---
+
+## ▶️ How to Run the Project
+
+1. Clone the repository
+
+```
+git clone https://github.com/your-username/repository-name.git
+```
+
+2. Navigate to the project folder
+
+```
+cd repository-name
+```
+
+3. Open the notebook
+
+```
+jupyter notebook
+```
+
+4. Run **DimensionalityReduction(PCA).ipynb**
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates how **Principal Component Analysis (PCA)** can reduce high-dimensional data into a lower-dimensional representation while preserving important patterns.  
+The visualization clearly shows the separation of digit classes in a **2D feature space**.
+
+---
 
 ## 👨‍💻 Author
 
 **Gunjan**
 
 B.Tech Computer Science Engineering  
-Machine Learning Enthusiast
-
----
+Machine Learning & AI Enthusiast
