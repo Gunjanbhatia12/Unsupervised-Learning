@@ -369,6 +369,150 @@ The visualization clearly shows the separation of digit classes in a **2D featur
 
 ---
 
+# 📌 DBSCAN Clustering using Scikit-Learn
+
+This project demonstrates the implementation of the **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)** algorithm using **Python and Scikit-learn**.
+
+DBSCAN is an unsupervised machine learning algorithm used to identify clusters in data based on density, making it highly effective for detecting arbitrary-shaped clusters and noise (outliers).
+
+---
+
+## 🚀 Project Overview
+
+- Generate a synthetic dataset using `make_moons`
+- Apply DBSCAN clustering
+- Visualize clusters and noise points
+
+---
+
+## 📂 Dataset
+
+We use a synthetic dataset generated using:
+
+```python
+from sklearn.datasets import make_moons
+X, y = make_moons(n_samples=300, noise=0.05)
+```
+
+- **Samples:** 300
+- **Noise:** 0.05
+- Shape: Non-linear (moon-shaped clusters)
+
+---
+
+## 🧠 Algorithm Used
+
+### DBSCAN
+
+DBSCAN groups together points that are closely packed together while marking points in low-density regions as outliers.
+
+### Key Parameters:
+
+- `eps`: Maximum distance between two samples for them to be considered neighbors
+- `min_samples`: Minimum number of points required to form a dense region
+
+---
+
+## ⚙️ Implementation Steps
+
+### 1. Import Libraries
+
+```python
+from sklearn.datasets import make_moons
+from sklearn.cluster import DBSCAN
+import matplotlib.pyplot as plt
+```
+
+### 2. Create Dataset
+
+```python
+X, y = make_moons(n_samples=300, noise=0.05)
+```
+
+### 3. Initialize Model
+
+```python
+model = DBSCAN(eps=0.2, min_samples=5)
+```
+
+### 4. Train Model
+
+```python
+model.fit(X)
+```
+
+### 5. Predict Clusters
+
+```python
+labels = model.fit_predict(X)
+```
+
+### 6. Visualization
+
+```python
+plt.scatter(X[:,0], X[:,1], c=labels)
+plt.title("DBSCAN Clustering")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.show()
+```
+
+---
+
+## 📊 Output
+
+- Data points are grouped into clusters
+- Noise points are labeled as `-1`
+- Visualization shows clear separation of clusters
+
+---
+
+## 📸 Sample Visualization
+
+Clusters are represented with different colors, and noise points appear separately.
+
+---
+
+## 🛠️ Requirements
+
+Install the following dependencies:
+
+```bash
+pip install numpy matplotlib scikit-learn
+```
+
+---
+
+## 📈 Advantages of DBSCAN
+
+- No need to specify number of clusters
+- Can find arbitrarily shaped clusters
+- Handles noise effectively
+
+---
+
+## ⚠️ Limitations
+
+- Sensitive to parameter selection (`eps`, `min_samples`)
+- Not suitable for datasets with varying density
+
+---
+
+## 💡 Use Cases
+
+- Anomaly detection
+- Spatial data analysis
+- Image segmentation
+- Market segmentation
+
+---
+
+## 📌 Conclusion
+
+DBSCAN is a powerful clustering algorithm for real-world datasets where clusters are irregular and noise is present. This project demonstrates its effectiveness on a non-linear dataset.
+
+---
+
 ## 👨‍💻 Author
 
 **Gunjan**
