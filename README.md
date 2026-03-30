@@ -513,6 +513,153 @@ DBSCAN is a powerful clustering algorithm for real-world datasets where clusters
 
 ---
 
+# Gaussian Mixture Model (GMM) Clustering
+
+## 📌 Project Overview
+
+This project demonstrates the implementation of the **Gaussian Mixture Model (GMM)** for clustering using **Scikit-learn** in Python.
+Unlike traditional clustering algorithms such as K-Means, GMM is a **probabilistic model** that assumes data points are generated from a mixture of several Gaussian distributions.
+
+---
+
+## 🎯 Objective
+
+* Generate synthetic data using `make_blobs`
+* Apply Gaussian Mixture Model for clustering
+* Predict cluster labels
+* Visualize clustered data
+
+---
+
+## 🛠️ Technologies Used
+
+* Python 🐍
+* Scikit-learn
+* NumPy
+* Matplotlib
+
+---
+
+## 📂 Dataset
+
+The dataset is **synthetically generated** using:
+
+```python
+from sklearn.datasets import make_blobs
+
+X, y = make_blobs(n_samples=300, centers=3, random_state=42)
+```
+
+### Features:
+
+* 300 data points
+* 3 clusters (centers)
+* 2-dimensional feature space
+
+---
+
+## ⚙️ Implementation Steps
+
+### 1. Import Libraries
+
+```python
+from sklearn.datasets import make_blobs
+from sklearn.mixture import GaussianMixture
+import matplotlib.pyplot as plt
+```
+
+### 2. Generate Dataset
+
+```python
+X, y = make_blobs(n_samples=300, centers=3, random_state=42)
+```
+
+### 3. Initialize Model
+
+```python
+model = GaussianMixture(n_components=3)
+```
+
+### 4. Train Model
+
+```python
+model.fit(X)
+```
+
+### 5. Predict Clusters
+
+```python
+labels = model.predict(X)
+```
+
+### 6. Visualization
+
+```python
+plt.scatter(X[:,0], X[:,1], c=labels)
+plt.title("Gaussian Mixture Model Clustering")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.show()
+```
+
+---
+
+## 📊 Output
+
+* The model assigns each data point to a cluster based on probability.
+* Visualization shows how GMM separates overlapping clusters effectively.
+
+---
+
+## 🧠 Key Concepts
+
+### 🔹 Gaussian Mixture Model
+
+* A probabilistic clustering algorithm
+* Assumes data is a mixture of multiple Gaussian distributions
+* Uses Expectation-Maximization (EM) algorithm
+
+### 🔹 Advantages over K-Means
+
+* Handles **overlapping clusters**
+* Provides **soft clustering** (probabilities)
+* More flexible cluster shapes
+
+---
+
+## 📈 Results
+
+* Successfully clustered data into 3 groups
+* Clear visualization of clustered data points
+* Demonstrates effectiveness of probabilistic clustering
+
+---
+
+## 🚀 How to Run
+
+1. Install dependencies:
+
+```bash
+pip install numpy matplotlib scikit-learn
+```
+
+2. Run the script:
+
+```bash
+python gaussian_mixture.py
+```
+
+---
+
+## 📌 Applications
+
+* Customer segmentation
+* Image processing
+* Anomaly detection
+* Speech recognition
+
+---
+
 ## 👨‍💻 Author
 
 **Gunjan**
